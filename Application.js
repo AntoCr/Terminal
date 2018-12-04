@@ -117,6 +117,7 @@ function end(name, node, target, xsnumber, speed, project){
 });*/
 
 $(document).on('keyup','#elem6', function() {
+	console.log(event.which);
     if ((event.which == 13  || event.keyCode == 13) && $("#elem6").length > 0 && $("#elem6").val() == 'continue'.toLowerCase()){
   		$("#elem6").prop('readonly', true);
   		console.log("great success");
