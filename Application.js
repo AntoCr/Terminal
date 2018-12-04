@@ -116,15 +116,15 @@ function end(name, node, target, xsnumber, speed, project){
 
 });*/
 
-$(document).on('keyup','#elem6', function() {
-	console.log(event.which);
-    if ((event.which == 13  || event.keyCode == 13) && $("#elem6").length > 0 && $("#elem6").val() == 'continue'.toLowerCase()){
+$(document).on('keydown','#elem6', function(event) {
+	console.log(event.key);
+    if (event.key == 'Enter' && $("#elem6").val().toLowerCase() == 'continue'){
   		$("#elem6").prop('readonly', true);
   		console.log("great success");
   		go = 1;
   		let str = "SuperProgetto";
-  			let project = str.link("https://www.google.it");
-  	end("elem7","div", "#terminal", 12, 50, project);
+  		let project = str.link("https://www.google.it");
+  		end("elem7","div", "#terminal", 12, 50, project);
   	}
 });
 
