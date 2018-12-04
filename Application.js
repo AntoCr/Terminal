@@ -99,7 +99,7 @@ function end(name, node, target, xsnumber, speed, project){
 //---------------Event Handlers---------------
 //--------------------------------------------
 
-document.addEventListener('keypress', (event) => {
+/*document.addEventListener('keypress', (event) => {
 
   if (event.which == 115  || event.keyCode == 115){
   	console.log("great success");
@@ -114,6 +114,17 @@ document.addEventListener('keypress', (event) => {
   	end("elem7","div", "#terminal", 12, 50, project);
   }
 
+});*/
+
+$(document).on('keyup','#elem6', function() {
+    if ((event.which == 13  || event.keyCode == 13) && $("#elem6").length > 0 && $("#elem6").val() == 'continue'.toLowerCase()){
+  		$("#elem6").prop('readonly', true);
+  		console.log("great success");
+  		go = 1;
+  		let str = "SuperProgetto";
+  			let project = str.link("https://www.google.it");
+  	end("elem7","div", "#terminal", 12, 50, project);
+  	}
 });
 
 $( window ).resize(function() {
