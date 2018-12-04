@@ -1,0 +1,122 @@
+let w = $( window ).width();
+let h = $( window ).height();
+let Server_name = "Rebel";
+let Client = "Guest";
+let ritardo = 0;
+let flag = 0;
+let i = 1;
+let go = 0;
+
+//aggiorno la data ogni secondo
+d = new Date();
+$( "#date" ).text( d.getDay() + "/" + d.getMonth() + "/" + d.getFullYear() + "\xa0" + d.getHours() + ":" + d.getMinutes());
+setInterval(updateClock,1000);
+
+
+//creo il primo nodo per la comunicazione e quelli successivi
+let elem1 = createNode("elem1", "div", "#terminal", 12);
+$( elem1 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
+showText(Messages.initialize, 0, elem1, 100, Messages.initialize.length);
+ritardo = ritardo + 100 * Messages.initialize.length;
+
+
+setTimeout(function(){
+	let elem2 = createNode("elem2", "div", "#terminal", 12);
+	$( elem2 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
+	showText(Messages.mex1, 0, elem2, 50, Messages.mex1.length);}, ritardo);
+ritardo = ritardo + 50 * Messages.mex1.length;
+
+
+setTimeout(function(){
+	let elem3 = createNode("elem3", "div", "#terminal", 12);
+	$( elem3 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
+	showText(Messages.mex2, 0, elem3, 50, Messages.mex2.length);}, ritardo);
+ritardo = ritardo + 50 * Messages.mex2.length;
+
+
+setTimeout(function(){
+	let elem4 = createNode("elem4", "div", "#terminal", 12);
+	$( elem4 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
+	showText(Messages.mex3, 0, elem4, 50, Messages.mex3.length);}, ritardo);
+ritardo = ritardo + 50 * Messages.mex3.length;
+
+
+setTimeout(function(){
+		let elem5 = createNode("elem5", "div", "#terminal", 2);
+		$( elem5 ).text("<" + Client + ">" + "..." +"\xa0\xa0");
+		let elem6 = document.createElement("input");
+		//elem6.rows=1; //se è una textarea invece che input
+		elem6.type="text"
+		elem6.className = "col-xs-"+ 10 + " " + " ";
+		elem6.setAttribute("id", "elem6");
+		$( elem6 ).insertAfter(elem5);
+		elem6.focus();
+}, ritardo);
+
+
+
+
+//---------------------------------------
+//---------------functions---------------
+//---------------------------------------
+
+function createNode(name, node, target, xsnumber){
+	let elem = document.createElement(node);
+	elem.className = "col-xs-"+ xsnumber + " " + name + " ";
+	$( target ).append( elem );
+	return elem;
+}
+
+function updateClock(){
+	let today = new Date();
+	let time = today.getHours() + ":" + today.getMinutes();
+
+	$( "#date" ).text( today.getDay() + "/" + today.getMonth() + "/" + today.getFullYear() + "\xa0" + time);
+}
+
+function showText(data, pos, target, speed, len){
+	if ( pos < len ) {
+		$( target ).append(data[pos]);
+		setTimeout(function(){showText(data, pos+1, target, speed, len);},speed);
+	}
+}
+
+function end(name, node, target, xsnumber, speed, project){
+	let elem = createNode(name, node, target, xsnumber);
+	elem.setAttribute("id", "end");
+	$( elem ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
+	let last = Messages[Object.keys(Messages)[Object.keys(Messages).length-1]];
+	showText(last, 0, elem, speed, last.length);
+	ritardo = speed * last.length;
+	setTimeout(function(){
+		document.getElementById("end").innerHTML += project;}, ritardo);
+}
+
+
+
+
+//--------------------------------------------
+//---------------Event Handlers---------------
+//--------------------------------------------
+
+document.addEventListener('keypress', (event) => {
+
+  if (event.which == 115  || event.keyCode == 115){
+  	console.log("great success");
+  }
+
+  if ((event.which == 13  || event.keyCode == 13) && $("#elem6").length > 0 && $("#elem6").val() == 'continue'.toLowerCase()){
+  	$("#elem6").prop('readonly', true);
+  	console.log("great success");
+  	go = 1;
+  	let str = "SuperProgetto";
+  	let project = str.link("https://www.google.it");
+  	end("elem7","div", "#terminal", 12, 50, project);
+  }
+
+});
+
+$( window ).resize(function() {
+  w = $( window ).width();
+  h = $( window ).height();
+});

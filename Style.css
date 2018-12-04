@@ -1,0 +1,32 @@
+body {
+	background-color: #000;
+	font-family: "Pixelato";
+	color: #1ec503;
+}
+
+input {
+	background-color: #000;
+	border-color: #000;
+	border: none;
+}
+
+/*textarea{
+	background-color: #000;
+	outline: none;
+	border-color: #000;
+	border: none;
+	resize: none;
+}*/
+
+input[type=text]:readonly {
+  background-color: inherit;
+  border: 0;
+
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+/*-webkit-text-fill-color:#880000;*/
