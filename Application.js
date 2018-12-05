@@ -7,6 +7,11 @@ let flag = 0;
 let i = 1;
 let go = 0;
 
+//font-size proportion 14px : 1280 = x : actualWidth
+let x = (14 * w) / 1280;
+document.body.style.fontSize = x.toString()+"px";
+
+
 //aggiorno la data ogni secondo
 d = new Date();
 $( "#date" ).text( d.getDay() + "/" + d.getMonth() + "/" + d.getFullYear() + "\xa0" + d.getHours() + ":" + d.getMinutes());
@@ -131,4 +136,7 @@ $(document).on('keydown','#elem6', function(event) {
 $( window ).resize(function() {
   w = $( window ).width();
   h = $( window ).height();
+
+  x = (14 * w) / 1280;
+  document.body.style.fontSize = x.toString()+"px";
 });
