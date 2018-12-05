@@ -21,35 +21,35 @@ setInterval(updateClock,1000);
 
 
 //creo il primo nodo per la comunicazione e quelli successivi
-let elem1 = createNode("elem1", "div", "#terminal", 12);
+let elem1 = createNode("elem1", "div", "#terminal", "col-xs-12");
 $( elem1 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
 showText(Messages.initialize, 0, elem1, 100, Messages.initialize.length);
 ritardo = ritardo + 100 * Messages.initialize.length;
 
 
 setTimeout(function(){
-	let elem2 = createNode("elem2", "div", "#terminal", 12);
+	let elem2 = createNode("elem2", "div", "#terminal", "col-xs-12");
 	$( elem2 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
 	showText(Messages.mex1, 0, elem2, 50, Messages.mex1.length);}, ritardo);
 ritardo = ritardo + 50 * Messages.mex1.length;
 
 
 setTimeout(function(){
-	let elem3 = createNode("elem3", "div", "#terminal", 12);
+	let elem3 = createNode("elem3", "div", "#terminal", "col-xs-12");
 	$( elem3 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
 	showText(Messages.mex2, 0, elem3, 50, Messages.mex2.length);}, ritardo);
 ritardo = ritardo + 50 * Messages.mex2.length;
 
 
 setTimeout(function(){
-	let elem4 = createNode("elem4", "div", "#terminal", 12);
+	let elem4 = createNode("elem4", "div", "#terminal", "col-xs-12");
 	$( elem4 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
 	showText(Messages.mex3, 0, elem4, 50, Messages.mex3.length);}, ritardo);
 ritardo = ritardo + 50 * Messages.mex3.length;
 
 
 setTimeout(function(){
-		let elem5 = createNode("elem5", "div", "#terminal", 2);
+		let elem5 = createNode("elem5", "div", "#terminal", "col-xs-2");
 		$( elem5 ).text("<" + Client + ">" + "..." +"\xa0\xa0");
 		let elem6 = document.createElement("input");
 		//elem6.rows=1; //se è una textarea invece che input
@@ -67,9 +67,9 @@ setTimeout(function(){
 //---------------functions---------------
 //---------------------------------------
 
-function createNode(name, node, target, xsnumber){
+function createNode(name, node, target, nameClass){
 	let elem = document.createElement(node);
-	elem.className = "col-xs-"+ xsnumber + " " + name + " ";
+	elem.className = nameClass + " " + name + " ";
 	$( target ).append( elem );
 	return elem;
 }
@@ -88,8 +88,8 @@ function showText(data, pos, target, speed, len){
 	}
 }
 
-function Interaction(name, node, target, xsnumber, speed, project, id, end){ //end-> 0 or 1 boolean
-	let elem = createNode(name, node, target, xsnumber);
+function Interaction(name, node, target, nameClass, speed, project, id, end){ //end-> 0 or 1 boolean
+	let elem = createNode(name, node, target, nameClass);
 	elem.setAttribute("id", id);
 	$( elem ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
 	let last = Messages[Object.keys(Messages)[Object.keys(Messages).length-1]];
@@ -116,10 +116,10 @@ $(document).on('keydown','#elem6', function(event) {
   		go = 1;
   		let str = "SuperProgetto";
   		let project = str.link("https://www.google.it");
-  		Interaction("elem7","div", "#terminal", 12, 50, project + "premi ok","end",0);
+  		Interaction("elem7","div", "#terminal", "col-xs-12", 50, project + "premi ok","end",0);
 
   		setTimeout(function(){
-  			let elem8 = createNode("elem8", "div", "#terminal",2);
+  			let elem8 = createNode("elem8", "div", "#terminal","col-xs-2");
   			$( elem8 ).text("<" + Client + ">" + "..." +"\xa0\xa0");
   			let elem9 = document.createElement("input");
   			elem9.type="text"
@@ -141,7 +141,7 @@ $(document).on('keydown','#elem9', function(event) {
   		go = 1;
   		let str = "SuperProgetto";
   		let project = str.link("https://www.google.it");
-  		Interaction("elem10","div", "#terminal", 12, 50, project, 1);
+  		Interaction("elem10","div", "#terminal", "col-xs-12", 50, project, 1);
   	}
 });
 
