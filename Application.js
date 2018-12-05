@@ -6,9 +6,10 @@ let ritardo = 0;
 let flag = 0;
 let i = 1;
 let go = 0;
+let authentication = "";
 
 //font-size proportion 14px : 1280 = x : actualWidth opure 14 = log10(w) * k  se w = 1280 -> k = 14/log10(1280);
-//let x = (14 * w) / 1280;
+//let x = (14 * w) / 1280; //14 per font matrix, cercare altro numero per altri font
 let k = 14 / Math.log10(1280);
 let s = Math.log10(w) * k;
 document.body.style.fontSize = s.toString()+"px";
@@ -21,45 +22,38 @@ setInterval(updateClock,1000);
 
 
 //creo il primo nodo per la comunicazione e quelli successivi
-let elem1 = createNode("elem1", "div", "#terminal", "col-xs-12");
-$( elem1 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
-showText(Messages.initialize, 0, elem1, 100, Messages.initialize.length);
+authentication = "<" + Server_name + ">" + "..." +"\xa0\xa0";
+
+let elem1 = domManagement("elem1", "div", "#terminal", "col-xs-12", authentication, Messages.initialize, 0, 100);
 ritardo = ritardo + 100 * Messages.initialize.length;
 
 
 setTimeout(function(){
-	let elem2 = createNode("elem2", "div", "#terminal", "col-xs-12");
-	$( elem2 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
-	showText(Messages.mex1, 0, elem2, 50, Messages.mex1.length);}, ritardo);
+	let elem2 = domManagement("elem2", "div", "#terminal", "col-xs-12", authentication, Messages.mex1, 0, 50);}, ritardo);
 ritardo = ritardo + 50 * Messages.mex1.length;
 
 
 setTimeout(function(){
-	let elem3 = createNode("elem3", "div", "#terminal", "col-xs-12");
-	$( elem3 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
-	showText(Messages.mex2, 0, elem3, 50, Messages.mex2.length);}, ritardo);
+	let elem3 = domManagement("elem3", "div", "#terminal", "col-xs-12", authentication, Messages.mex2, 0, 50);}, ritardo);
 ritardo = ritardo + 50 * Messages.mex2.length;
 
 
 setTimeout(function(){
-	let elem4 = createNode("elem4", "div", "#terminal", "col-xs-12");
-	$( elem4 ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
-	showText(Messages.mex3, 0, elem4, 50, Messages.mex3.length);}, ritardo);
+	let elem4 = domManagement("elem4", "div", "#terminal", "col-xs-12", authentication, Messages.mex3, 0, 50);}, ritardo);
 ritardo = ritardo + 50 * Messages.mex3.length;
 
 
+authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
+
 setTimeout(function(){
-		let elem5 = createNode("elem5", "div", "#terminal", "col-xs-2");
-		$( elem5 ).text("<" + Client + ">" + "..." +"\xa0\xa0");
-		let elem6 = document.createElement("input");
+		let elem5 = domManagement("elem5", "div", "#terminal", "col-xs-2", authentication, 0, 0, 50);
+		let elem6 = domManagement("elem6", "input", elem5, "col-xs-"+ 10 + " " + " ", 0, 0, 0, 0, "elem6");
 		//elem6.rows=1; //se è una textarea invece che input
 		elem6.type="text"
-		elem6.className = "col-xs-"+ 10 + " " + " ";
-		elem6.setAttribute("id", "elem6");
-		$( elem6 ).insertAfter(elem5);
 		elem6.focus();
 }, ritardo);
 
+authentication = "<" + Server_name + ">" + "..." +"\xa0\xa0";
 
 
 
@@ -70,7 +64,12 @@ setTimeout(function(){
 function createNode(name, node, target, nameClass){
 	let elem = document.createElement(node);
 	elem.className = nameClass + " " + name + " ";
-	$( target ).append( elem );
+
+	if (node == 'input')
+		$( elem ).insertAfter( target );
+	else
+		$( target ).append( elem );
+	
 	return elem;
 }
 
@@ -98,6 +97,21 @@ function Interaction(name, node, target, nameClass, speed, project, id, end){ //
 	setTimeout(function(){
 		document.getElementById(id).innerHTML += project;}, ritardo);
 	ritardo = ritardo + 1;
+}
+
+//aggiungere la possibilità di inserire anche input e di ritornare uno o più elementi
+function domManagement(name, node, target, nameClass, auth, data, pos, speed, id = 0){
+	let elem = createNode(name, node, target, nameClass);
+	if (auth != 0)
+		$( elem ).text(auth);
+	
+	if (data != 0)
+		showText(data, pos, elem, speed, data.length);
+	
+	if (id != 0)
+		elem.setAttribute("id", id);
+
+	return elem;
 }
 
 
