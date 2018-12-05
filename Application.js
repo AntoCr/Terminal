@@ -7,9 +7,11 @@ let flag = 0;
 let i = 1;
 let go = 0;
 
-//font-size proportion 14px : 1280 = x : actualWidth
-let x = (14 * w) / 1280;
-document.body.style.fontSize = x.toString()+"px";
+//font-size proportion 14px : 1280 = x : actualWidth opure 14 = log10(w) * k  se w = 1280 -> k = 14/log10(1280);
+//let x = (14 * w) / 1280;
+let k = 14 / Math.log10(1280);
+let s = Math.log10(w) * k;
+document.body.style.fontSize = s.toString()+"px";
 
 
 //aggiorno la data ogni secondo
@@ -137,6 +139,7 @@ $( window ).resize(function() {
   w = $( window ).width();
   h = $( window ).height();
 
-  x = (14 * w) / 1280;
-  document.body.style.fontSize = x.toString()+"px";
+  //x = (14 * w) / 1280;
+  s = Math.log10(w) * k;
+  document.body.style.fontSize = s.toString()+"px";
 });
