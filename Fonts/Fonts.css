@@ -2,3 +2,8 @@
     font-family: "Pixelato";
     src: url("pixelmix/pixelmix.ttf");
 }
+
+@font-face {
+    font-family: "vt323";
+    src: url("vt323/VT323-Regular.ttf");
+}
