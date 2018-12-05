@@ -88,15 +88,16 @@ function showText(data, pos, target, speed, len){
 	}
 }
 
-function end(name, node, target, xsnumber, speed, project){
+function Interaction(name, node, target, xsnumber, speed, project, id, end){ //end-> 0 or 1 boolean
 	let elem = createNode(name, node, target, xsnumber);
-	elem.setAttribute("id", "end");
+	elem.setAttribute("id", id);
 	$( elem ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
 	let last = Messages[Object.keys(Messages)[Object.keys(Messages).length-1]];
 	showText(last, 0, elem, speed, last.length);
 	ritardo = speed * last.length;
 	setTimeout(function(){
-		document.getElementById("end").innerHTML += project;}, ritardo);
+		document.getElementById(id).innerHTML += project;}, ritardo);
+	ritardo = ritardo + 1;
 }
 
 
@@ -106,22 +107,6 @@ function end(name, node, target, xsnumber, speed, project){
 //---------------Event Handlers---------------
 //--------------------------------------------
 
-/*document.addEventListener('keypress', (event) => {
-
-  if (event.which == 115  || event.keyCode == 115){
-  	console.log("great success");
-  }
-
-  if ((event.which == 13  || event.keyCode == 13) && $("#elem6").length > 0 && $("#elem6").val() == 'continue'.toLowerCase()){
-  	$("#elem6").prop('readonly', true);
-  	console.log("great success");
-  	go = 1;
-  	let str = "SuperProgetto";
-  	let project = str.link("https://www.google.it");
-  	end("elem7","div", "#terminal", 12, 50, project);
-  }
-
-});*/
 
 $(document).on('keydown','#elem6', function(event) {
 	console.log(event.key);
@@ -131,7 +116,32 @@ $(document).on('keydown','#elem6', function(event) {
   		go = 1;
   		let str = "SuperProgetto";
   		let project = str.link("https://www.google.it");
-  		end("elem7","div", "#terminal", 12, 50, project);
+  		Interaction("elem7","div", "#terminal", 12, 50, project + "premi ok","end",0);
+
+  		setTimeout(function(){
+  			let elem8 = createNode("elem8", "div", "#terminal",2);
+  			$( elem8 ).text("<" + Client + ">" + "..." +"\xa0\xa0");
+  			let elem9 = document.createElement("input");
+  			elem9.type="text"
+			elem9.className = "col-xs-"+ 10 + " " + " ";
+			elem9.setAttribute("id", "elem9");
+			$( elem9 ).insertAfter(elem8);
+			elem9.focus();},ritardo);
+  	}
+
+});
+
+
+$(document).on('keydown','#elem9', function(event) {
+	console.log(event.key);
+	if (event.key == 'Enter' &&  $("#elem9").val()!= undefined && $("#elem9").val().toLowerCase() == 'ok'){
+
+  		$("#elem9").prop('readonly', true);
+  		console.log("great success");
+  		go = 1;
+  		let str = "SuperProgetto";
+  		let project = str.link("https://www.google.it");
+  		Interaction("elem10","div", "#terminal", 12, 50, project, 1);
   	}
 });
 
