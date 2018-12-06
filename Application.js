@@ -76,7 +76,6 @@ function createNode(name, node, target, nameClass){
 function updateClock(){
 	let today = new Date();
 	let time = today.getHours() + ":" + today.getMinutes();
-
 	$( "#date" ).text( today.getDay() + "/" + today.getMonth() + "/" + today.getFullYear() + "\xa0" + time);
 }
 
