@@ -89,17 +89,6 @@ function showText(data, pos, target, speed, len){
 	}
 }
 
-/*function Interaction(name, node, target, nameClass, speed, project, id, end){ //end-> 0 or 1 boolean
-	let elem = createNode(name, node, target, nameClass);
-	elem.setAttribute("id", id);
-	$( elem ).text("<" + Server_name + ">" + "..." +"\xa0\xa0");
-	let last = Messages[Object.keys(Messages)[Object.keys(Messages).length-1]];
-	showText(last, 0, elem, speed, last.length);
-	ritardo = speed * last.length;
-	setTimeout(function(){
-		document.getElementById(id).innerHTML += project;}, ritardo);
-	ritardo = ritardo + 1;
-}*/
 
 //aggiungere la possibilità di inserire anche input e di ritornare uno o più elementi
 function domManagement(name, node, target, nameClass, auth, data, pos, speed, id = 0){
