@@ -4,12 +4,12 @@ let Server_name = "Rebel";
 let Client = "Guest";
 let ritardo = 0;
 let flag = 0;
-let i = 2; // perchè tex.json ha prima initialize e info, quindi inizio da Object.values(Messages)[2] ivece che Object.values(Messages)[0]
+let i = 2; // perchè Tex.json ha prima initialize e info, quindi inizio da Object.values(Messages)[2] ivece che Object.values(Messages)[0]
 let authentication = "";
 
 //font-size proportion 14px : 1280 = x : actualWidth opure 14 = log10(w) * k  se w = 1280 -> k = 14/log10(1280);
 //let x = (14 * w) / 1280; //14 per font matrix, cercare altro numero per altri font
-let k = 14 / Math.log10(1280);
+let k = 18 / Math.log10(1280);
 let s = Math.log10(w) * k;
 document.body.style.fontSize = s.toString()+"px";
 
@@ -38,12 +38,11 @@ setTimeout(function(){
 	i++;}, ritardo);
 ritardo = ritardo + 50 * Messages.mex2.length;
 
+
 setTimeout(function(){
 	let elem4 = domManagement("elem4", "div", "#terminal", "col-xs-12", authentication, Messages.mex3, 0, 50);
 	i++;}, ritardo);
 ritardo = ritardo + 50 * Messages.mex3.length;
-
-
 
 
 setTimeout(function(){
