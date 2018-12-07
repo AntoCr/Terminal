@@ -112,7 +112,6 @@ function domManagement(name, node, target, nameClass, auth, data, pos, speed, id
 //---------------Event Handlers---------------
 //--------------------------------------------
 
-
 $(document).on('keydown',$('input').last()[0], function(event) {
 	console.log(event.key);
 //stare attenti a quando serve [0] oppure no
