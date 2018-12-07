@@ -116,7 +116,7 @@ $(document).on('keydown',$('input').last()[0], function(event) {
 	console.log(event.key);
 //stare attenti a quando serve [0] oppure no
 	if (event.key == 'Enter' && $('input').last().val().toLowerCase() == 'continue' && $('input').last()[0].readOnly == false){
-		if (i <= 6){
+		if (i <= 9){
 			$('input').last().prop('readonly', true);
   			console.log("great success");
   			/*let str = "SuperProgetto";
@@ -125,7 +125,7 @@ $(document).on('keydown',$('input').last()[0], function(event) {
   			let elem = domManagement("elem", 'div', "#terminal", "col-xs-12", authentication, Object.values(Messages)[i], 0, 50);
   			ritardo = 50 * Object.values(Messages)[i].length;
   			
-  			if (i!= 6){
+  			if (i!= 9){
   				setTimeout(function() {
   					authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
   					//same name because local variables get priority over global with same names
