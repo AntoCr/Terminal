@@ -24,8 +24,18 @@ input[type=text]:readonly {
 
 }
 
+/*#elem6 {
+	max-width:100%;
+float:left;
+}*/
+
 textarea:focus, input:focus{
     outline: none;
+}
+
+.modal-content {
+	background-color: #fff;
+	color: #000;
 }
 
 
