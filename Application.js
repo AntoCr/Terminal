@@ -103,7 +103,15 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 		return elem;
 	}
 
+	function startQuiz(){
+		authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
+	  	let elem = domManagement("elem", "div", "#terminal", "col-xs-2", authentication, 0, 0, 50);
+	  	let input = domManagement("elem", "input", elem, "col-xs-"+ 10 + " " + " ", 0, 0, 0, 0);
+	  	input.type="text";
+	  	input.focus();
+	  	alert("yolo");
 
+	}
 
 
 	//--------------------------------------------
@@ -123,7 +131,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	  			let elem = domManagement("elem", 'div', "#terminal", "col-xs-12", authentication, Object.values(Messages)[i], 0, 50);
 	  			ritardo = 50 * Object.values(Messages)[i].length;
 	  			
-	  			if (i!= 9){
+	  			if (i != NaN){
 	  				setTimeout(function() {
 	  					authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
 	  					//same name because local variables get priority over global with same names
@@ -133,9 +141,12 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 						input.focus();
 	  					i++;},ritardo);
 	  			}
+
 	  		}
-	  		else
+	  		else{
 	  			console.log("messaggi terminati");
+	  		}
+
 		}
 
 
