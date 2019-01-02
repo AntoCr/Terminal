@@ -104,11 +104,6 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	}
 
 	function startQuiz(){
-		authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
-	  	let elem = domManagement("elem", "div", "#terminal", "col-xs-2", authentication, 0, 0, 50);
-	  	let input = domManagement("elem", "input", elem, "col-xs-"+ 10 + " " + " ", 0, 0, 0, 0);
-	  	input.type="text";
-	  	input.focus();
 	  	alert("yolo");
 
 	}
@@ -143,9 +138,12 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	  			}
 
 	  		}
-	  		else{
-	  			console.log("messaggi terminati");
-	  		}
+
+	  	else{
+	  		console.log("messaggi terminati");
+	  		startQuiz();
+	  	}
+
 
 		}
 
