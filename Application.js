@@ -5,8 +5,12 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	let Client = "Guest";
 	let ritardo = 0;
 	let retard;
+	let max_initial = 4;
+	let max_final = 0;
 	let i = 2; // perchè Tex.json ha prima initialize e info, quindi inizio da Object.values(Messages)[2] ivece che Object.values(Messages)[0]
 	let authentication = "";
+
+	console.log(parent.document.title);
 
 	//font-size proportion 14px : 1280 = x : actualWidth opure 14 = log10(w) * k  se w = 1280 -> k = 14/log10(1280);
 	//let x = (14 * w) / 1280; //14 per font matrix, cercare altro numero per altri font
@@ -24,10 +28,11 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	//creo il primo nodo per la comunicazione e quelli successivi
 	authentication = "<" + Server_name + ">" + "..." +"\xa0\xa0";
 
+	//intro
 	let elem1 = domManagement("elem1", "div", "#terminal", "col-xs-12", authentication, Messages.initialize, 0, 100);
 	ritardo = ritardo + 100 * Messages.initialize.length;
 
-
+	//spiegazione
 	setTimeout(function(){
 		let elem2 = domManagement("elem2", "div", "#terminal", "col-xs-12", authentication, Messages.mex1, 0, 50);
 		i++;}, ritardo);
@@ -45,6 +50,15 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 		i++;}, ritardo);
 	ritardo = ritardo + 50 * Messages.mex3.length;
 
+	// k va da 1 perchè k = è l'intro
+	// se l'intro non c'è inizializzare a k = 0 
+	/*let idex = 0;
+	for ( index = 1; index < max_initial; index++){
+		setTimeout(function(){
+			let elem = domManagement("elem" + index, "div", "#terminal", "col-xs-12", authentication, Messages["mex" + index], 0, 50);
+			i++;}, ritardo);
+		ritardo = ritardo + 50 * Messages["mex" + index].length;
+	}*/
 
 	setTimeout(function(){
 		authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
