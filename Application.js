@@ -7,7 +7,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	let ritardo = 0;
 	let retard;
 	let max_initial = 4;
-	let max_final = 0;
+	let max_final = 6;
 	let i = 2; // perchè Tex.json ha prima initialize e info, quindi inizio da Object.values(Messages)[2] ivece che Object.values(Messages)[0]
 	let authentication = "";
 	
@@ -31,9 +31,9 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	//creo il primo nodo per la comunicazione e quelli successivi
 	authentication = "<" + Server_name + ">" + "..." +"\xa0\xa0";
 
-	//intro
-	let elem1 = domManagement("elem1", "div", "#terminal", "col-xs-12", authentication, Messages.initialize, 0, 100);
-	ritardo = ritardo + 100 * Messages.initialize.length;
+	//intro levare i commenti se serve
+	/*let elem1 = domManagement("elem1", "div", "#terminal", "col-xs-12", authentication, Messages.initialize, 0, 100);
+	ritardo = ritardo + 100 * Messages.initialize.length;*/
 
 	//spiegazione
 	setTimeout(function(){
@@ -53,6 +53,21 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 		i++;}, ritardo);
 	ritardo = ritardo + 50 * Messages.mex3.length;
 
+
+	setTimeout(function(){
+		let elem5 = domManagement("elem5", "div", "#terminal", "col-xs-12", authentication, Messages.mex4, 0, 50);
+		i++;}, ritardo);
+	ritardo = ritardo + 50 * Messages.mex4.length;
+
+
+	setTimeout(function(){
+		let elem6 = domManagement("elem6", "div", "#terminal", "col-xs-12", authentication, Messages.mex5, 0, 50);
+		i++;}, ritardo);
+	ritardo = ritardo + 50 * Messages.mex5.length;
+
+
+
+
 	// k va da 1 perchè k = è l'intro
 	// se l'intro non c'è inizializzare a k = 0 
 	/*let idex = 0;
@@ -65,10 +80,10 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 
 	setTimeout(function(){
 		authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
-		let elem5 = domManagement("elem5", "div", "#terminal", "col-xs-3 col-sm-1 ", authentication, 0, 0, 50);
-		let elem6 = domManagement("elem6", "input", elem5, "col-xs-9 col-sm-11 " , 0, 0, 0, 0, "elem6");
-		elem6.type="text"
-		elem6.focus();
+		let elem7 = domManagement("elem7", "div", "#terminal", "col-xs-3 col-sm-1 ", authentication, 0, 0, 50);
+		let elem8 = domManagement("elem8", "input", elem7, "col-xs-9 col-sm-11 " , 0, 0, 0, 0, "elem8");
+		elem8.type="text"
+		elem8.focus();
 	}, ritardo);
 
 
@@ -135,8 +150,8 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	$(document).on('keydown',$('input').last()[0], function(event) {
 		console.log(event.key);
 	//stare attenti a quando serve [0] oppure no
-		if (event.key == 'Enter' && $('input').last().val().toLowerCase() == 'continue' && $('input').last()[0].readOnly == false){
-			if (i <= 9){
+		if (event.key == 'Enter' && $('input').last().val().toLowerCase() == 'continua' && $('input').last()[0].readOnly == false){
+			if (i <= max_final){
 				$('input').last().prop('readonly', true);
 	  			console.log("great success");
 	  			/*let str = "SuperProgetto";
@@ -158,16 +173,16 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 
 	  		}
 
-	  	else{
-	  		console.log("messaggi terminati");
-	  		startQuiz();
-	  	}
+	  		else{
+	  			console.log("messaggi terminati");
+	  			startQuiz();
+	  		}
 
 
 		}
 
-
-		if (event.key == 'Enter' && $('input').last().val().toLowerCase() == 'info' && $('input').last()[0].readOnly == false){
+		//nel caso l'utente voglia informazioni, levare i commenti se serve
+		/*if (event.key == 'Enter' && $('input').last().val().toLowerCase() == 'info' && $('input').last()[0].readOnly == false){
 			$('input').last().prop('readonly', true);
 	  		console.log("great success");
 	  		authentication = "<" + Server_name + ">" + "..." +"\xa0\xa0";
@@ -183,7 +198,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 				input.focus();  
 	  		},ritardo);
 
-		}	
+		}*/	
 	});
 
 
