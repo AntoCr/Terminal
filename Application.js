@@ -191,8 +191,8 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 		function receiveMessage(event)
 		{
 			if (event.source == window.parent){
-			next_Sequence = event.data;
-			console.log(next_Sequence);
+			next_Sequence = event.data.toString();
+			console.log(next_Sequence.toString());
 		}	
 }
 
