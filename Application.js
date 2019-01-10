@@ -192,6 +192,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 		{
 			if (event.source == window.parent){
 			next_Sequence = event.data;
+			console.log(next_Sequence);
 		}	
 }
 
