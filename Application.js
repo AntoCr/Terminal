@@ -10,7 +10,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	let i = 2; // perchè Tex.json ha prima initialize e info, quindi inizio da Object.values(Messages)[2] ivece che Object.values(Messages)[0]
 	let authentication = "";
 
-	window.parent.postmessage("prova riuscita");
+	window.parent.postMessage("prova riuscita");
 	//console.log(parent.document.title);
 
 	//font-size proportion 14px : 1280 = x : actualWidth opure 14 = log10(w) * k  se w = 1280 -> k = 14/log10(1280);
