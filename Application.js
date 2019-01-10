@@ -2,7 +2,7 @@ let next_Sequence = 0;
 $('#myModal').on('hidden.bs.modal', function (e) {
 	let w = $( window ).width();
 	let h = $( window ).height();
-	let Server_name = "Rebel";
+	let Server_name = "Server";
 	let Client = "Guest";
 	let ritardo = 0;
 	let retard;
