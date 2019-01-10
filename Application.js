@@ -122,8 +122,8 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 
 	function startQuiz(){
 	  	//alert("yolo");
-	  	//KlyntAPI.commands.openSequence(next_Sequence);
-	  	KlyntAPI.commands.openSequence("159CE1D0-9532-B4C5-C0CF-F0E7CE9BFB98");
+	  	KlyntAPI.commands.openSequence(next_Sequence);
+	  	//KlyntAPI.commands.openSequence("159CE1D0-9532-B4C5-C0CF-F0E7CE9BFB98");
 
 	}
 
