@@ -1,3 +1,4 @@
+let next_Sequence = 0;
 $('#myModal').on('hidden.bs.modal', function (e) {
 	let w = $( window ).width();
 	let h = $( window ).height();
@@ -9,7 +10,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	let max_final = 0;
 	let i = 2; // perchè Tex.json ha prima initialize e info, quindi inizio da Object.values(Messages)[2] ivece che Object.values(Messages)[0]
 	let authentication = "";
-	let next_Sequence = 0;
+	
 
 	window.parent.postMessage("prova riuscita",'*');
 	//console.log(parent.document.title);
@@ -191,8 +192,8 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 		function receiveMessage(event)
 		{
 			if (event.source == window.parent){
-			next_Sequence = event.data.toString();
-			console.log(next_Sequence.toString());
+			next_Sequence = (event.data).toString();
+			console.log(next_Sequence);
 		}	
 }
 
