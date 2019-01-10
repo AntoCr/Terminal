@@ -10,6 +10,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	let max_final = 6;
 	let i = 2; // perchè Tex.json ha prima initialize e info, quindi inizio da Object.values(Messages)[2] ivece che Object.values(Messages)[0]
 	let authentication = "";
+	let constant = 500;
 	
 
 	window.parent.postMessage("prova riuscita",'*');
@@ -39,31 +40,31 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	setTimeout(function(){
 		let elem2 = domManagement("elem2", "div", "#terminal", "col-xs-12", authentication, Messages.mex1, 0, 50);
 		i++;}, ritardo);
-	ritardo = ritardo + 50 * Messages.mex1.length;
+	ritardo = ritardo + 50 * Messages.mex1.length+constant;
 
 
 	setTimeout(function(){
 		let elem3 = domManagement("elem3", "div", "#terminal", "col-xs-12", authentication, Messages.mex2, 0, 50);
 		i++;}, ritardo);
-	ritardo = ritardo + 50 * Messages.mex2.length;
+	ritardo = ritardo + 50 * Messages.mex2.length+constant;
 
 
 	setTimeout(function(){
 		let elem4 = domManagement("elem4", "div", "#terminal", "col-xs-12", authentication, Messages.mex3, 0, 50);
 		i++;}, ritardo);
-	ritardo = ritardo + 50 * Messages.mex3.length;
+	ritardo = ritardo + 50 * Messages.mex3.length+constant;
 
 
 	setTimeout(function(){
 		let elem5 = domManagement("elem5", "div", "#terminal", "col-xs-12", authentication, Messages.mex4, 0, 50);
 		i++;}, ritardo);
-	ritardo = ritardo + 50 * Messages.mex4.length;
+	ritardo = ritardo + 50 * Messages.mex4.length+constant;
 
 
 	setTimeout(function(){
 		let elem6 = domManagement("elem6", "div", "#terminal", "col-xs-12", authentication, Messages.mex5, 0, 50);
 		i++;}, ritardo);
-	ritardo = ritardo + 50 * Messages.mex5.length;
+	ritardo = ritardo + 50 * Messages.mex5.length+constant;
 
 
 
