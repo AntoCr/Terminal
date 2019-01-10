@@ -58,13 +58,13 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	setTimeout(function(){
 		let elem5 = domManagement("elem5", "div", "#terminal", "col-xs-12", authentication, Messages.mex4, 0, 50);
 		i++;}, ritardo);
-	ritardo = ritardo + 50 * Messages.mex4.length+constant;
+	ritardo = ritardo + 50 * Messages.mex4.length+constant*2;
 
 
 	setTimeout(function(){
 		let elem6 = domManagement("elem6", "div", "#terminal", "col-xs-12", authentication, Messages.mex5, 0, 50);
 		i++;}, ritardo);
-	ritardo = ritardo + 50 * Messages.mex5.length+constant*2;
+	ritardo = ritardo + 50 * Messages.mex5.length+constant;
 
 
 
