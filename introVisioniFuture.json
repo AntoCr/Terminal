@@ -1,7 +1,7 @@
 let Messages = {
 	"initialize": "",
 	"info":"",
-	"mex1":"Visioni future di dà il benvenuto!",
+	"mex1":"Visioni future ti dà il benvenuto!",
 	"mex2":"Se sei arrivato qui è perché probabilmente hai qualcosa da nascondere,",
 	"mex3":"ma sei sicuro di sapere come fare?",
 	"mex4":"La nostra esperienza interattiva metterà alla prova le tue conoscenze e ti fornirà strumenti utili per migliorarle.",
