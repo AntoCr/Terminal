@@ -33,6 +33,10 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+#myModal {
+	font-family: "Arial";
+}
+
 .modal-content {
 	background-color: #fff;
 	color: #000;

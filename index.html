@@ -41,17 +41,21 @@
 		</div>	
 
 		<!-- Small modal -->
-		<div id="myModal" class="modal fade bs-example-modal-sm " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  			<div class="modal-dialog modal-sm" role="document">
+		<div id="myModal" class="modal fade bs-example-modal-sm " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"> <!-- replace bs-example-modal-lg with bs-example-modal-sm for small size and look next comment-->
+  			<div class="modal-dialog " role="document"> <!-- add class modal-sm for small size-->
     			<div class="modal-content">
     				<div class="modal-header">
-       					<h5 class="modal-title">Modal title</h5>
+       					<!--<h5 class="modal-title">Modal title</h5>-->
       				</div>
       				<div class="modal-body">
-        				<button type="button" class="btn btn-primary center-block " data-dismiss="modal">Acconsento al trattamento dei dati</button>
+      					<div class="text-center">Consigliamo di disporre lo schermo in orizzontale per una migliore esperienza</div>
+      					<br>
+      					<button type="button" class="btn btn-primary center-block btn-block" data-dismiss="modal">Inizia</button>
+        				<!--<button type="button" class="btn btn-primary center-block " data-dismiss="modal">Acconsento al trattamento dei dati</button>-->
       				</div>
       				<div class="modal-footer">
- 						<p class="center-text pull-left">termini e privacy</p>
+ 						<!--<p class="center-text pull-left">termini e privacy</p>-->
+ 						<!--<button type="button" class="btn btn-primary center-block pull-right" data-dismiss="modal">Continua</button>-->
       				</div>
     			</div>
  			 </div>
@@ -70,8 +74,8 @@
 		<script type="text/javascript">
 			$(function() {
 				$("#myModal").modal({backdrop: false});
-    			//$('#myModal').modal('show'); uncomment to show modal
-    			$('#myModal').modal('hide');  //comment to show modal
+    			$('#myModal').modal('show'); //uncomment to show modal
+    			//$('#myModal').modal('hide');  //comment to show modal
 			});
 		</script>
 
