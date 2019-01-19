@@ -18,7 +18,8 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 
 	//font-size proportion 14px : 1280 = x : actualWidth opure 14 = log10(w) * k  se w = 1280 -> k = 14/log10(1280);
 	//let x = (14 * w) / 1280; //14 per font matrix, cercare altro numero per altri font
-	let k = 18 / Math.log10(1280);
+	//provare 18 oppure 22
+	let k = 22 / Math.log10(1280);
 	let s = Math.log10(w) * k;
 	document.body.style.fontSize = s.toString()+"px";
 
