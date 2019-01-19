@@ -35,6 +35,8 @@ textarea:focus, input:focus{
 
 #myModal {
 	font-family: "Arial";
+	/*levare se non serve il font-size*/
+	font-size: 22px;
 }
 
 .modal-content {
