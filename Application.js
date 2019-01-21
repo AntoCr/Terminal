@@ -84,7 +84,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 		authentication = "<" + Client + ">" + "..." +"\xa0\xa0";
 		let elem7 = domManagement("elem7", "div", "#terminal", "col-xs-3 col-sm-1 ", authentication, 0, 0, 50);
 		let elem8 = domManagement("elem8", "input", elem7, "col-xs-9 col-sm-11 " , 0, 0, 0, 0, "elem8");
-		elem8.type="text"
+		elem8.type="text";
 		elem8.focus();
 	}, ritardo);
 
