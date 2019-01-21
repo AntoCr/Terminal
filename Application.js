@@ -153,7 +153,7 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 	$(document).on('keydown',$('input').last()[0], function(event) {
 		console.log(event.key);
 	//stare attenti a quando serve [0] oppure no
-		if (event.key == 'Enter' && $('input').last().val().toLowerCase() == 'continua' && $('input').last()[0].readOnly == false){
+		if (event.key == 'Enter' && $('input').last().val().trim().toLowerCase() == 'continua' && $('input').last()[0].readOnly == false){
 			if (i <= max_final-1){
 				$('input').last().prop('readonly', true);
 	  			console.log("great success");
